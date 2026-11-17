@@ -1,0 +1,30 @@
+{"id": "q01", "question": "How long do I have to return a bedsheet I bought at full price?", "answerable": true, "expected_source": "returns_and_refunds_policy.pdf", "expected_location": "p. 1", "must_include": ["30 days"]}
+{"id": "q02", "question": "Can I get my money back on a Final Sale item?", "answerable": true, "expected_source": "returns_and_refunds_policy.pdf", "expected_location": "p. 1", "must_include": ["exchange", "7 days"]}
+{"id": "q03", "question": "Can I return monogrammed bedsheets?", "answerable": true, "expected_source": "returns_and_refunds_policy.pdf", "expected_location": "p. 1", "must_include": ["defective"]}
+{"id": "q04", "question": "Is there a charge if you pick up my return from home?", "answerable": true, "expected_source": "returns_and_refunds_policy.pdf", "expected_location": "p. 2", "must_include": ["149"]}
+{"id": "q05", "question": "How long will my refund take after you receive the item?", "answerable": true, "expected_source": "returns_and_refunds_policy.pdf", "expected_location": "p. 2", "must_include": ["5", "business days"]}
+{"id": "q06", "question": "I paid cash on delivery. How will I get my refund?", "answerable": true, "expected_source": "returns_and_refunds_policy.pdf", "expected_location": "p. 2", "must_include": ["upi"]}
+{"id": "q07", "question": "What do I get if I choose store credit instead of a refund?", "answerable": true, "expected_source": "returns_and_refunds_policy.pdf", "expected_location": "p. 2", "must_include": ["10%"]}
+{"id": "q08", "question": "What's the minimum order value for free shipping?", "answerable": true, "expected_source": "shipping_and_delivery.pdf", "expected_location": "p. 1", "must_include": ["1999"]}
+{"id": "q09", "question": "How much does express delivery cost?", "answerable": true, "expected_source": "shipping_and_delivery.pdf", "expected_location": "p. 1", "must_include": ["249"]}
+{"id": "q10", "question": "What's the maximum order value for cash on delivery?", "answerable": true, "expected_source": "shipping_and_delivery.pdf", "expected_location": "p. 1", "must_include": ["10000"]}
+{"id": "q11", "question": "How long does standard delivery take to a small town?", "answerable": true, "expected_source": "shipping_and_delivery.pdf", "expected_location": "p. 1", "must_include": ["9 business days"]}
+{"id": "q12", "question": "Do you ship to the USA, and who pays the customs duties?", "answerable": true, "expected_source": "shipping_and_delivery.pdf", "expected_location": "p. 2", "must_include": ["customer"]}
+{"id": "q13", "question": "When will I receive a tracking link?", "answerable": true, "expected_source": "shipping_and_delivery.pdf", "expected_location": "p. 2", "must_include": ["24 hours"]}
+{"id": "q14", "question": "My parcel seems to be lost. How long do I have to file a claim?", "answerable": true, "expected_source": "shipping_and_delivery.pdf", "expected_location": "p. 2", "must_include": ["15 days"]}
+{"id": "q15", "question": "How should I wash a new handloom cotton bedsheet?", "answerable": true, "expected_source": "product_care_guide.pdf", "expected_location": "p. 1", "must_include": ["cold"]}
+{"id": "q16", "question": "My bedsheet shrank a little after washing. Is that normal?", "answerable": true, "expected_source": "product_care_guide.pdf", "expected_location": "p. 1", "must_include": ["3%"]}
+{"id": "q17", "question": "Can I put the jute rug in the washing machine?", "answerable": true, "expected_source": "product_care_guide.pdf", "expected_location": "p. 2", "must_include": ["spot clean"]}
+{"id": "q18", "question": "How do I clean a silk cushion cover?", "answerable": true, "expected_source": "product_care_guide.pdf", "expected_location": "p. 2", "must_include": ["dry clean"]}
+{"id": "q19", "question": "What does the warranty on curtains cover?", "answerable": true, "expected_source": "product_care_guide.pdf", "expected_location": "p. 2", "must_include": ["6", "manufacturing"]}
+{"id": "q20", "question": "What size is SNT-BD-114?", "answerable": true, "expected_source": "faq.docx", "expected_location": "Section: Product codes", "must_include": ["108"]}
+{"id": "q21", "question": "Do you give a discount on corporate gifting orders?", "answerable": true, "expected_source": "faq.docx", "expected_location": "Section: Bulk and corporate orders", "must_include": ["12%", "25"]}
+{"id": "q22", "question": "How much does gift wrapping cost?", "answerable": true, "expected_source": "faq.docx", "expected_location": "Section: Gift wrapping", "must_include": ["99"]}
+{"id": "q23", "question": "How long do custom-size curtains take?", "answerable": true, "expected_source": "faq.docx", "expected_location": "Section: Custom sizes", "must_include": ["12 business days"]}
+{"id": "q24", "question": "What are the opening hours of your Jaipur studio?", "answerable": true, "expected_source": "faq.docx", "expected_location": "Section: Visit our studio", "must_include": ["11"]}
+{"id": "q25", "question": "How does the loyalty programme work?", "answerable": true, "expected_source": "faq.docx", "expected_location": "Section: Thread Circle loyalty programme", "must_include": ["100"]}
+{"id": "q26", "question": "Can I pay in EMI?", "answerable": true, "expected_source": "faq.docx", "expected_location": "Section: Orders & payment", "must_include": ["5000"]}
+{"id": "q27", "question": "Do you sell wooden furniture?", "answerable": false}
+{"id": "q28", "question": "Do you offer a student discount?", "answerable": false}
+{"id": "q29", "question": "Is there a mobile app I can order from?", "answerable": false}
+{"id": "q30", "question": "What is your company's GST number?", "answerable": false}
