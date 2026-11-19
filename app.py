@@ -7,6 +7,7 @@ in .streamlit/secrets.toml or in Streamlit Cloud secrets, it uses Gemini.
 """
 from __future__ import annotations
 
+import datetime
 import hashlib
 import os
 from pathlib import Path
@@ -35,6 +36,10 @@ MAX_QUESTION_CHARS = 500
 MAX_FILES = 5
 MAX_FILE_MB = 5
 MAX_TOTAL_CHARS = 250_000
+# A global safety cap shared by every visitor (on top of the per-session limit),
+# so a public demo can't run the owner's API key past a daily budget. Override
+# with the MAX_LLM_CALLS_PER_DAY environment variable.
+MAX_LLM_CALLS_PER_DAY = int(os.getenv("MAX_LLM_CALLS_PER_DAY", "300"))
 
 CONTRA_URL = "https://contra.com/bharti_shrivastava_zu3hypce"
 
@@ -145,6 +150,31 @@ def answer_to_message(answer) -> dict:
     }
 
 
+# ----------------------------------------------- global daily usage cap
+@st.cache_resource(show_spinner=False)
+def _daily_usage() -> dict:
+    """One counter shared by all sessions in this server process."""
+    return {"date": datetime.date.today(), "calls": 0}
+
+
+def _roll_day(usage: dict) -> None:
+    today = datetime.date.today()
+    if usage["date"] != today:
+        usage["date"], usage["calls"] = today, 0
+
+
+def day_calls_left() -> int:
+    usage = _daily_usage()
+    _roll_day(usage)
+    return MAX_LLM_CALLS_PER_DAY - usage["calls"]
+
+
+def record_call() -> None:
+    usage = _daily_usage()
+    _roll_day(usage)
+    usage["calls"] += 1
+
+
 # ------------------------------------------------------------------ page
 def main() -> None:
     st.set_page_config(page_title="DocAnswer: answers from your documents", page_icon="📄", layout="centered")
@@ -242,6 +272,8 @@ def main() -> None:
     st.title("DocAnswer")
     st.markdown("**A customer-help chatbot that answers only from your documents, "
                 "and shows the page each answer came from.**")
+    st.caption("⏳ On the free demo server, the very first response can take up to a "
+               "minute while it wakes up — after that it's quick.")
 
     for problem in problems:
         st.warning(problem)
@@ -292,12 +324,18 @@ def main() -> None:
             message = {"role": "assistant", "refused": True, "citations": [],
                        "text": f"This demo allows {MAX_QUESTIONS_PER_SESSION} questions per visit to stay within "
                                "its free API limit. Refresh the page later, or run it yourself with your own key."}
+        elif live and day_calls_left() <= 0:
+            message = {"role": "assistant", "refused": True, "citations": [],
+                       "text": "This public demo has paused for today after reaching its daily limit, "
+                               "which keeps it inside its free API budget. Please try again tomorrow, "
+                               "or run it yourself with your own key."}
         else:
             try:
                 with st.spinner("Searching the documents…"):
                     answer = engine.ask(question)
                 message = answer_to_message(answer)
                 if live:
+                    record_call()
                     state.asked += 1
                     counter.caption(f"Questions left this session: {max(0, MAX_QUESTIONS_PER_SESSION - state.asked)}")
             except Exception as error:  # noqa: BLE001
